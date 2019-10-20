@@ -9,7 +9,7 @@ def peaks(w):
     return P
 
 def peak_set(S,n):
-    W = Permutations(range(1,n+1))
+    W = Permutations(n)
     A =[]
     for w in W:
         if peaks(w)==S:
