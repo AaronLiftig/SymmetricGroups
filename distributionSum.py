@@ -41,12 +41,6 @@ def maxlength(P):
     for p in P:
         L.append(p.length())
     return max(L)
-
-def minlength(P):
-    L=[]
-    for p in P:
-        L.append(p.length())
-    return min(L)
                         
 #Your code primarily ends here. However, the code between the ###### below is also from your code.                        
 
