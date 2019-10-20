@@ -24,10 +24,10 @@ def maxlength(P):
 #Your code primarily ends here. However, the code between the ###### below is also from your code.
 
 
-for seriesNumber in range(5,8):
+for seriesNumber in range(1,11):
     S_list = sumFunction(sumFunction,seriesNumber)
 
-    distribList=[]
+    distribList=[] #List of unique distributions of peaks for Sn
 
     for S in S_list.finalResult:
         temp=[]
@@ -48,30 +48,30 @@ for seriesNumber in range(5,8):
             (TL[p.length()]).append(p)
 
         for i in range(maxlength(P)+1):
-            temp.append(len(TL[i]))
+            temp.append(len(TL[i])) #Creates distribution elements for distribList
         
         #####
         
         distribList.append(temp)
 
-    for i in range(len(distribList)):
+    for i in range(len(distribList)): #Appends extra 0's to end because your code excuded them
         for j in distribList[i]:
             if j == 0:
                 distribList[i].append(0)
             else:
                 break
     
-    distribList.sort(key=lambda x:x[int(len(x)/2)])
-
+    distribList.sort(key=lambda x:x[int(len(x)/2)]) #Sorts distubList by middle value to speed up summing process
 
     counter=0
     sumList=[]
     
-    for iter1 in range(len(distribList)):
+    for iter1 in range(len(distribList)): #This is the slow part, I think.
         for iter2 in range(iter1,len(distribList)):
             temp=[]
             for i in range(len(distribList[0])):
                 if distribList[iter1][int(len(distribList[0])/2)]+distribList[iter2][int(len(distribList[0])/2)] > distribList[-1][int(len(distribList[0])/2)]:
+                #Attempts to speed up process by comparing sum to largest value in the list (i.e. the last element). If the sum is too large, it moves on.
                     temp=[]
                     break
                 else:    
@@ -83,7 +83,7 @@ for seriesNumber in range(5,8):
            
     inList=[]
     
-    for val in sumList:
+    for val in sumList: #Checks to see if any list in inList is also in distribList
         if val in distribList:
             counter += 1
             inList.append(val)
