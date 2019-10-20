@@ -45,10 +45,10 @@ def maxlength(P):
 #Your code primarily ends here. However, the code between the ###### below is also from your code.                        
 
 
-for seriesNumber in range(10,11):
+for seriesNumber in range(1,11):
     S_list = sumFunction(sumFunction,seriesNumber)
 
-    sumList=[]
+    distribList=[]
 
     for S in S_list.finalResult:
         temp=[]
@@ -68,39 +68,39 @@ for seriesNumber in range(10,11):
         for i in range(maxlength(P)+1):
             temp.append(len(TL[i]))
 
-        sumList.append(temp)
+        distribList.append(temp)
 
-    for i in range(len(sumList)):
-        for j in sumList[i]:
+    for i in range(len(distribList)):
+        for j in distribList[i]:
             if j == 0:
-                sumList[i].append(0)
+                distribList[i].append(0)
             else:
                 break
     
-    sumList.sort(key=lambda x:x[int(len(x)/2)])
+    distribList.sort(key=lambda x:x[int(len(x)/2)])
     
     counter=0
-    critList=[]
+    sumList=[]
     
-    for iter1 in range(len(sumList)):
-        for iter2 in range(iter1+1,len(sumList)):
+    for iter1 in range(len(distribList)):
+        for iter2 in range(iter1+1,len(distribList)):
             temp=[]
-            for i in range(len(sumList[0])):
-                if sumList[iter1][int(len(sumList[0])/2)]+sumList[iter2][int(len(sumList[0])/2)] > sumList[-1][int(len(sumList[0])/2)]:
+            for i in range(len(distribList[0])):
+                if distribList[iter1][int(len(distribList[0])/2)]+distribList[iter2][int(len(distribList[0])/2)] > distribList[-1][int(len(distribList[0])/2)]:
                     temp=[]
                     break
                 else:    
-                    temp.append(sumList[iter1][i]+sumList[iter2][i])
+                    temp.append(distribList[iter1][i]+distribList[iter2][i])
             if temp:
-                critList.append(temp)
+                sumList.append(temp)
     
     inList=[]
     
-    for val in critList:
-        if val in sumList:
+    for val in sumList:
+        if val in distribList:
             counter += 1
             inList.append(val)
 
-    print(counter)    
-
+    print(counter)
+    
 # sequence output: 0, 0, 0, 0, 1, 1, 3, 5, 10, 19 ...
