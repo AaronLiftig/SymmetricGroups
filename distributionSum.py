@@ -93,6 +93,8 @@ for seriesNumber in range(1,11):
                     temp.append(distribList[iter1][i]+distribList[iter2][i])
             if temp:
                 sumList.append(temp)
+            else:
+                break
     
     inList=[]
     
@@ -101,6 +103,6 @@ for seriesNumber in range(1,11):
             counter += 1
             inList.append(val)
 
-    print(counter)
+    print(counter) 
     
 # sequence output: 0, 0, 0, 0, 1, 1, 3, 5, 10, 19 ...
