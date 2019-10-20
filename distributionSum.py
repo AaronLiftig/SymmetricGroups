@@ -45,15 +45,13 @@ def maxlength(P):
 #Your code primarily ends here. However, the code between the ###### below is also from your code.                        
 
 
-for seriesNumber in range(1,11):
+for seriesNumber in range(10,11):
     S_list = sumFunction(sumFunction,seriesNumber)
 
     sumList=[]
 
     for S in S_list.finalResult:
         temp=[]
-        
-        #####
         if isinstance(S,tuple):    
             P=peak_set(S[0],seriesNumber)
         else:
@@ -68,9 +66,8 @@ for seriesNumber in range(1,11):
             (TL[p.length()]).append(p)
 
         for i in range(maxlength(P)+1):
-            temp.append(len(TL[i])) 
-        #####
-        
+            temp.append(len(TL[i]))
+
         sumList.append(temp)
 
     for i in range(len(sumList)):
@@ -79,24 +76,31 @@ for seriesNumber in range(1,11):
                 sumList[i].append(0)
             else:
                 break
-
+    
+    sumList.sort(key=lambda x:x[int(len(x)/2)])
+    
     counter=0
     critList=[]
-
+    
     for iter1 in range(len(sumList)):
         for iter2 in range(iter1+1,len(sumList)):
             temp=[]
-            for val1,val2 in zip(sumList[iter1],sumList[iter2]):
-                temp.append(val1+val2)
-            critList.append(temp)
-
+            for i in range(len(sumList[0])):
+                if sumList[iter1][int(len(sumList[0])/2)]+sumList[iter2][int(len(sumList[0])/2)] > sumList[-1][int(len(sumList[0])/2)]:
+                    temp=[]
+                    break
+                else:    
+                    temp.append(sumList[iter1][i]+sumList[iter2][i])
+            if temp:
+                critList.append(temp)
+    
     inList=[]
-
+    
     for val in critList:
         if val in sumList:
             counter += 1
             inList.append(val)
 
-    print(counter)     
+    print(counter)    
 
 # sequence output: 0, 0, 0, 0, 1, 1, 3, 5, 10, 19 ...
