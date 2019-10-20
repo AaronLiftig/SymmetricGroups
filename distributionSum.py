@@ -1,3 +1,5 @@
+from distributionSequence import sumFunction
+
 #Your code starts here:
 
 ##peaks(w)#################################################################
@@ -102,3 +104,5 @@ for seriesNumber in range(1,11):
             inList.append(val)
 
     print(counter)     
+
+# sequence output: 0, 0, 0, 0, 1, 1, 3, 5, 10, 19 ...
