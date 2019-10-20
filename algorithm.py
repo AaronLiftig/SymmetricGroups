@@ -62,3 +62,54 @@ class sumFunction:
                         usedList.append(tempVal2)
                         self.finalResult += tempList
                         self.currResult += tempList
+
+for seriesNumber in range(1,11):
+    S_list = sumFunction(sumFunction,seriesNumber)
+
+    sumList=[]
+
+    for S in S_list.finalResult:
+        temp=[]
+        if isinstance(S,tuple):    
+            P=peak_set(S[0],seriesNumber)
+        else:
+            P=peak_set(S,seriesNumber)
+
+        TL=[]
+
+        for i in range(maxlength(P)+1):
+            TL.append([])
+
+        for p in P:
+            (TL[p.length()]).append(p)
+
+        for i in range(maxlength(P)+1):
+            temp.append(len(TL[i]))
+
+        sumList.append(temp)
+
+    for i in range(len(sumList)):
+        for j in sumList[i]:
+            if j == 0:
+                sumList[i].append(0)
+            else:
+                break
+
+    counter=0
+    critList=[]
+
+    for iter1 in range(len(sumList)):
+        for iter2 in range(iter1+1,len(sumList)):
+            temp=[]
+            for val1,val2 in zip(sumList[iter1],sumList[iter2]):
+                temp.append(val1+val2)
+            critList.append(temp)
+
+    inList=[]
+
+    for val in critList:
+        if val in sumList:
+            counter += 1
+            inList.append(val)
+
+    print(counter)     
