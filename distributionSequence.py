@@ -48,14 +48,14 @@ class sumFunction:
                         tempList.append(tempVal1)
                         if len(tempVal1) >= (seriesNumber-2)/2:
                             self.finalResult += tempList
-                            return False
+                            return
                         else:                            
                             self.finalResult += tempList
                             self.currResult += tempList
                             break
                     else:
                         if len(tempVal1) > (seriesNumber-2)/2:
-                            return False
+                            return
                         elif tempVal1 in usedList:                           
                             break
                         tempList.append((tempVal1,tempVal2))
