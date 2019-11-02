@@ -12,6 +12,7 @@ class sumFunction:
     def algorithm(self,cls,seriesNumber):
         cls.FirstVals(self,seriesNumber)
         cls.RemainVals(self,cls,seriesNumber)
+        self.finalResult = [[]] + self.finalResult
         print(len(self.finalResult))
         print(self.finalResult)
             
