@@ -7,6 +7,3 @@ Counts the number of uniquely distributed reduced word peaks that are the sum of
 
 Further progress with this and related topics can be seen at the Google Sheet here:
 https://docs.google.com/spreadsheets/d/1s9cs7yTAHibGVSuVyzM0xjJRaYs3-RtTjm1MlKPQG1U/edit?usp=sharing
-
-newApproach.py
-Is an attempt to optimize the code
